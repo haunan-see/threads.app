@@ -118,8 +118,6 @@ const ThreadCard = ({
         {/* DELETE THREAD */}
         {/* SHOW COMMENTS AUTHOR IMAGES */}
       </div>
-      {/* {console.log("community", community)} */}
-
       {!isComment && community && (
         <Link
           href={`/communities/${community.id}`}

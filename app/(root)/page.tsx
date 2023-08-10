@@ -6,8 +6,6 @@ export default async function Home() {
   const data = await fetchThreads(1, 30);
   const user = await currentUser();
 
-  console.log(data);
-
   return (
     <>
       <h1 className="head-text text-left">Home</h1>
