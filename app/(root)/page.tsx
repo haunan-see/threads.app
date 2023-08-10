@@ -6,7 +6,7 @@ export default async function Home() {
   const data = await fetchThreads(1, 30);
   const user = await currentUser();
 
-  console.log(user);
+  console.log(data);
 
   return (
     <>

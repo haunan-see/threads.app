@@ -8,8 +8,6 @@ import Comment from "@/components/forms/Comment";
 const Page = async ({ params }: { params: { id: string } }) => {
   if (!params.id) return null;
 
-  console.log("params", params);
-
   const user = await currentUser();
   if (!user) return null;
 
@@ -17,6 +15,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
   if (!userInfo.onboarded) redirect("/onboarding");
 
   const thread = await fetchThreadById(params.id);
+
+  console.log(thread);
 
   return (
     <section className="relative">
@@ -30,7 +30,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
           author={thread.author}
           community={thread.community}
           createdAt={thread.createdAt}
-          comments={thread.comments}
+          comments={thread.children}
         />
       </div>
       <div className="mt-7">
@@ -52,7 +52,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             author={childThread.author}
             community={childThread.community}
             createdAt={childThread.createdAt}
-            comments={childThread.comments}
+            comments={childThread.children}
             isComment
           />
         ))}

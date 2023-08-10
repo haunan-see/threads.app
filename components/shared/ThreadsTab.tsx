@@ -33,7 +33,7 @@ const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
           } // todo
           community={thread.community} // todo
           createdAt={thread.createdAt}
-          comments={thread.comments}
+          comments={thread.children}
         />
       ))}
     </section>
